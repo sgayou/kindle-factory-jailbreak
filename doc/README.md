@@ -1,5 +1,5 @@
 # Kindle Factory Firmware Arbitrary File Injection
-Details of the ;installHtml Kindle mechanism.
+Details of the ;installHtml Kindle jailbreak mechanism.
 
 ## Discovery
 Recently, NiLuJe on the mobileread forums discovered that factory images could be recovered from a new Kindle. The factory firmware files were marked as deleted but not overwritten. As such, they can be recovered. Other members of the forum banded together to recover factory images from all of the devices and discovered that the Kindle would allow itself to downgrade using these special images. Normally, downgrades are blocked by the update mechanism.
@@ -26,11 +26,11 @@ tar xvf /mnt/us/main-htmlviewer.tar.gz
 ```
 
 ### Background
-It's important to note that a previous [jailbreak](http://www.mobileread.com/forums/showthread.php?p=1902438) by ixtab used what appears to be a flaw in the older version of Busybox Amazon is currently using on the Kindle. The tar function extracts files with absolute paths...absolutely. As the Busybox version Amazon is still using is from 2009, they probably didn't patch this flaw.
+It's important to note that a previous [jailbreak](http://www.mobileread.com/forums/showthread.php?p=1902438) by ixtab used what appears to be a flaw in the older version of Busybox Amazon is currently using on the Kindle. The tar function extracts files with absolute paths...absolutely. As the Busybox version Amazon is using is from 2009, they probably didn't patch this flaw.
 
 ## Exploitation
 We need to create a tar file with absolute paths. Let's tar up the developer key we used in the previous jailbreak. Create an absolute path tar with /etc/uks/pubdevkey01.pem and we're done. installHtmlViewer.sh runs as root and does a mntroot rw before extracting the file. Name it main-htmlviewer.tar.gz, have the user copy it to the user store, then instruct the user to run ;installHtml in the search bar.
 
-Easy as that. Less than one hour to code execution. To be fair, my assumption is that factory images were never intended to be leaked. Running unsigned code on an OS probably designed to run unsigned code for test purposes isn't that impressive. The cool part was the discovery of the factory image and that it allowed for downgrades.
+Easy as that. Less than one hour to code execution. To be fair, my assumption is that factory images were never intended to be leaked. Running unsigned code on an OS probably designed to run unsigned code for test purposes is a bit unimpressive. The cool part was the discovery of the factory image and that it allowed for downgrades.
 
 Thanks to NiLuJe and knc1.
