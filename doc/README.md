@@ -33,4 +33,4 @@ We need to create a tar file with absolute paths. Let's tar up the developer key
 
 Easy as that. Less than one hour to code execution. To be fair, my assumption is that factory images were never intended to be leaked. Running unsigned code on an OS probably designed to run unsigned code for test purposes is a bit unimpressive. The cool part was the discovery of the factory image and that it allowed for downgrades.
 
-Thanks to NiLuJe and knc1.
+Thanks to ixtab, NiLuJe and knc1.
